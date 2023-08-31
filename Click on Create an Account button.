@@ -1,0 +1,30 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class CreateAccountButton 
+{
+    public static void main(String[] args) 
+{
+        System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
+
+        WebDriver driver = new ChromeDriver();
+
+        driver.get("https://Imaginnovate.com"); 
+
+        try {
+            
+            WebElement createAccountButton = driver.findElement(By.id("create-account-button")); 
+
+            createAccountButton.click();
+
+        } catch (Exception e) 
+{
+            e.printStackTrace();
+        } finally 
+{
+            driver.quit();
+        }
+    }
+}
