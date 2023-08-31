@@ -1,0 +1,35 @@
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FormPersonalinformation 
+{
+    public static void main(String[] args) 
+{
+        System.setProperty("webdriver.chrome.driver", "path_to_chromedriver.exe");
+        
+        WebDriver driver = new ChromeDriver();
+        
+        driver.get("https://Imaginnovate.com/form"); 
+        
+        WebElement nameField = driver.findElement(By.name("name"));
+        nameField.sendKeys("Mahesh Arunagiri");
+        
+        WebElement ageField = driver.findElement(By.name("age"));
+        ageField.sendKeys("24");
+        
+        WebElement dobField = driver.findElement(By.name("dob"));
+        dobField.sendKeys("1998-11-10");
+        
+        WebElement addressField = driver.findElement(By.name("address"));
+        addressField.sendKeys("333, Hyderabad,Telangana");
+        
+        WebElement contactField = driver.findElement(By.name("contact"));
+        contactField.sendKeys("+91-7799862071");
+        
+        WebElement submitButton = driver.findElement(By.id("submit-button")); 
+        submitButton.click();
+        
+    }
+}
