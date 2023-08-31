@@ -1,0 +1,37 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class UserCreationValidation 
+{
+    public static void main(String[] args) 
+{
+        System.setProperty("webdriver.chrome.driver", "path/to/chromedriver.exe");
+
+        WebDriver driver = new ChromeDriver();
+
+        driver.get("https://Imaginnovate.com/user-creation");
+
+        WebElement usernameInput = driver.findElement(By.id("Mahesh Arunagiri"));
+        WebElement emailInput = driver.findElement(By.id("arunagirimahesh@gmail.com"));
+        WebElement passwordInput = driver.findElement(By.id("password123"));
+        WebElement createButton = driver.findElement(By.id("create-button"));
+
+        usernameInput.sendKeys("MaheshArunagiri");
+        emailInput.sendKeys("arunagirimahesh@Gmail.com");
+        passwordInput.sendKeys("password123");
+        createButton.click();
+
+        // WebDriverWait wait = new WebDriverWait(driver, 10);
+        // wait.until(ExpectedConditions.textToBePresentInElementLocated(By.id("success-message"), "User created successfully"));
+
+        if (driver.getCurrentUrl().equals("https://Imaginnovate.com/user-profile")) 
+{
+            System.out.println("User created successfully!");
+        } else {
+            System.out.println("User creation failed.");
+        }
+        driver.quit();
+    }
+}
